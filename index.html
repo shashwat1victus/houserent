@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rental Records</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgb(240, 243, 248); /* Soft blue-gray */
+      color: rgb(33, 37, 41); /* Deep slate gray */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: rgb(0, 102, 204); /* Professional blue */
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      padding: 30px;
+      background-color: rgb(255, 255, 255); /* White card */
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.4rem;
+      line-height: 2;
+    }
+
+    .line {
+      opacity: 0;
+      transition: opacity 0.4s ease-in;
+    }
+
+    .line.visible {
+      opacity: 1;
+    }
+
+    .image-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>RENTAL RECORDS</h1>
+  <div class="container" id="textContainer"></div>
+
+  <div class="image-container">
+    <img src="transaction.jpeg" alt="Transaction Confirmation Image" />
+  </div>
+
+  <script>
+    const lines = [
+      "Welcome! Below are the details of your rental transaction:",
+      "TRANSACTION 1",
+      "DATE - 6 OCTOBER 2025",
+      "TRANSACTION AMOUNT - 6200RS",
+      "PAYMENT MODE - ONLINE (YONO SBI)",
+      "STATEMENT - \"OCTOBER MONTHLE RENT\"",
+      "STATUS - COMPLETED TRANSACTION",
+      "RECEIVED FROM - MR. MANOJ KUMAR SHUKLA.",
+      "IN THE NAME OF - SHREE SHUSHIL KUMAR TIWARI."
+    ];
+
+    const container = document.getElementById('textContainer');
+
+    lines.forEach((text, index) => {
+      const div = document.createElement("div");
+      div.className = "line";
+      div.textContent = text;
+      container.appendChild(div);
+
+      setTimeout(() => {
+        div.classList.add("visible");
+      }, index * 500); // 500ms delay between each line
+    });
+  </script>
+</body>
+</html>
